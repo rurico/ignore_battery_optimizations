@@ -35,9 +35,6 @@ class IgnoreBatteryOptimizationsPlugin : MethodCallHandler {
     }
 
     private fun openBatteryOptimizations() {
-        if (!isIgnoringBatteryOptimizations()) {
-            requestIgnoreBatteryOptimizations()
-        }
         if (isHuawei()) {
             goHuaweiSetting()
             return
@@ -69,6 +66,9 @@ class IgnoreBatteryOptimizationsPlugin : MethodCallHandler {
         if (isVIVO()) {
             goVIVOSetting()
             return
+        }
+        if (!isIgnoringBatteryOptimizations()) {
+            requestIgnoreBatteryOptimizations()
         }
     }
 
